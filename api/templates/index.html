@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppers Intent Predictor</title>
+    <!-- link external css file -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 Shoppers Intent Predictor</h1>
+            <p>Fill in the session details below to predict if a shopper will purchase or not</p>
+            <a href="/docs" class="swagger-link" target="_blank">📄 API Documentation</a>
+        </div>
+
+        <form id="prediction-form">
+            <div class="section-title">Session Behavior</div>
+            <div class="form-grid">
+                <!-- administrative section -->
+                <div class="form-group">
+                    <label>Administrative Pages</label>
+                    <input type="number" id="Administrative" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label>Administrative Duration (sec)</label>
+                    <input type="number" step="0.1" id="Administrative_Duration" value="80.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Informational Pages</label>
+                    <input type="number" id="Informational" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Informational Duration (sec)</label>
+                    <input type="number" step="0.1" id="Informational_Duration" value="25.0" required>
+                </div>
+                <div class="form-group">
+                    <label>Product Related Pages</label>
+                    <input type="number" id="ProductRelated" value="15" required>
+                </div>
+                <div class="form-group">
+                    <label>Product Related Duration (sec)</label>
+                    <input type="number" step="0.1" id="ProductRelated_Duration" value="450.0" required>
+                </div>
+            </div>
+
+            <div class="section-title">Engagement Metrics</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Bounce Rate (0-1)</label>
+                    <input type="number" step="0.01" id="BounceRates" value="0.02" required>
+                </div>
+                <div class="form-group">
+                    <label>Exit Rate (0-1)</label>
+                    <input type="number" step="0.01" id="ExitRates" value="0.05" required>
+                </div>
+                <div class="form-group">
+                    <label>Page Values</label>
+                    <input type="number" step="0.1" id="PageValues" value="25.5" required>
+                </div>
+                <div class="form-group">
+                    <label>Special Day (0-1)</label>
+                    <input type="number" step="0.1" id="SpecialDay" value="0.0" required>
+                </div>
+            </div>
+
+            <div class="section-title">Visitor Information</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Month (1-12)</label>
+                    <input type="number" id="Month" value="5" min="1" max="12" required>
+                </div>
+                <div class="form-group">
+                    <label>Operating System</label>
+                    <input type="number" id="OperatingSystems" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label>Browser</label>
+                    <input type="number" id="Browser" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label>Region</label>
+                    <input type="number" id="Region" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Traffic Type</label>
+                    <input type="number" id="TrafficType" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label>Visitor Type (0=New, 1=Other, 2=Returning)</label>
+                    <input type="number" id="VisitorType" value="2" min="0" max="2" required>
+                </div>
+                <div class="form-group">
+                    <label>Weekend (0=No, 1=Yes)</label>
+                    <input type="number" id="Weekend" value="0" min="0" max="1" required>
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <button type="submit" class="predict-btn">🔍 Predict Purchase Intent</button>
+        </form>
+
+        <!-- result section — hidden by default -->
+        <div id="result" class="result hidden"></div>
+    </div>
+
+    <!-- link external js file -->
+    <script src="/static/script.js"></script>
+</body>
+</html>

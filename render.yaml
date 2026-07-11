@@ -1,0 +1,18 @@
+# This file defines Render deployment configuration
+
+services:
+  - type: web  # web service type
+    name: shoppers-intent-mlops  # service name on render
+    env: docker  # use docker for deployment
+    dockerfilePath: ./Dockerfile  # path to dockerfile
+    plan: free  # render free tier
+    region: oregon  # render region
+    branch: main  # deploy from main branch
+
+    envVars:
+      - key: MLFLOW_TRACKING_URI
+        value: ./mlruns  # mlflow tracking uri
+      - key: MODEL_PATH
+        value: ./ml/model.pkl  # model save path
+      - key: PYTHONPATH
+        value: /app  # python path
