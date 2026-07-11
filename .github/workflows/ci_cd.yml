@@ -107,4 +107,4 @@ jobs:
         with:
           context: .  # build context is root directory
           push: true  # push to docker hub
-          tags: ${{ secrets.DOCKER_USERNAME }}/shoppers-intent-mlops:latest  # image tag
+          tags: ${{ secrets.DOCKER_USERNAME }}/shoppers-intent-mlops:latest  # image tags
